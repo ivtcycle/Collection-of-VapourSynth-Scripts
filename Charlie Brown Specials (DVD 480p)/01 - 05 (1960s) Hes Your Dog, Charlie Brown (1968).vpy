@@ -2,7 +2,7 @@ import vapoursynth as vs
 core = vs.core
 import havsfunc as haf
 
-src = core.ffms2.Source(r'C:\Users\WIP\AppData\Local\Programs\MPEG Video\02 - 01 (Snow Days) Shes a Good Skate, Charlie Brown (1980).mkv')
+src = core.ffms2.Source(r'C:\Users\WIP\AppData\Local\Programs\MPEG Video\01 - 05 (1960s) Hes Your Dog, Charlie Brown (1968).mkv')
 src = core.std.Crop(src, left=4, right=4, top=2, bottom=2)
 src = core.resize.Spline36(src, width=640, height=480)
 src = haf.daa(src)##AA+contra-sharpening
@@ -21,4 +21,5 @@ bt=1, sigma=strength/8, sigma2=strength/4, sigma3=strength/2, sigma4=strength)#T
 src = core.neo_f3kdb.Deband(src)
 src = core.grain.Add(src, var=2, seed=-1)
 src = core.resize.Spline36(src, format=vs.YUV420P10, range_s="limited")
+
 src.set_output(index=0)
